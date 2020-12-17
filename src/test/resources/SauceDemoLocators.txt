@@ -35,7 +35,7 @@ Locators for element_1 URL "https://www.saucedemo.com/inventory-item.html?id=0":
     get description: findElement(By.xpath("//*[@class='inventory_item_desc']"));
     get price: findElement(By.xpath("//*[@class='inventory_item_price']"));
 
-Locators for element_2 URL "https://www.saucedemo.com/inventory-item.html?id=1";
+Locators for element_2 URL "https://www.saucedemo.com/inventory-item.html?id=1":
 
 
 Locators for element_3 URL "https://www.saucedemo.com/inventory-item.html?id=2";
