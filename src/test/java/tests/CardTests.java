@@ -2,22 +2,22 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
+import pages.CartPage;
 public class CardTests extends BaseTest{
     @Test
     public void buttonCheckout(){
-        loginPage.openPage();
-        loginPage.login(loginPage.USERNAME, loginPage.PASSWORD);
+        CartPage cartPage = new CartPage(driver);
         cartPage.openPage();
-        cartPage.clickToCheckoutButton(cartPage.BUTTON_CHECKOUT);
-        Assert.assertEquals(loginPage.getURL(), "https://www.saucedemo.com/checkout-step-one.html","error");
+        cartPage.clickToCheckoutButton();
+        cartPage.isPageOpened();
+        Assert.assertEquals(cartPage.getURL(), CHECKOUT_URL,"error");
     }
     @Test
     public void buttonContinueShopping(){
-        loginPage.openPage();
-        loginPage.login(loginPage.USERNAME, loginPage.PASSWORD);
+        CartPage cartPage = new CartPage(driver);
         cartPage.openPage();
-        cartPage.clickToCheckoutButton(cartPage.BUTTON_CONTINUE_SHOPPING);
-        Assert.assertEquals(loginPage.getURL(), "https://www.saucedemo.com/inventory.html","error");
+        cartPage.clickToContinueButton();
+        cartPage.isPageOpenedContinue();
+        Assert.assertEquals(cartPage.getURL(), PRODUCTS_URL,"error");
     }
 }
