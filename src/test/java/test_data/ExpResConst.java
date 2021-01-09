@@ -1,4 +1,4 @@
-package constants;
+package test_data;
 
 public interface ExpResConst {
     String QUANTITY_IN_CART = "1";

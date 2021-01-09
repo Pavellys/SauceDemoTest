@@ -2,7 +2,6 @@ package pages;
 
 import constants.Constants;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,7 +14,7 @@ abstract class BasePage implements Constants {
         PageFactory.initElements(driver, this);
         wait = new WebDriverWait(driver, 20);
     }
+
     abstract void isPageOpened();
 
-    abstract void openPage();
 }

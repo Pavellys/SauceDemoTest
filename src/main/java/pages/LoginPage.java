@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,22 +14,28 @@ public class LoginPage extends BasePage {
     WebElement loginButton;
     @FindBy(className = "product_label")
     WebElement productLabel;
+
     public LoginPage(WebDriver driver) {
         super(driver);
     }
+
     @Override
     public void isPageOpened() {
         wait.until(ExpectedConditions.visibilityOf(productLabel));
     }
+
     public ProductsPage login(String username, String password) {
         usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);
         loginButton.click();
         return new ProductsPage(driver);
     }
-    public void openPage() {
+
+    public LoginPage openPage() {
         driver.get(SAUCE_DEMO_URL);
+        return this;
     }
+
     public String getURL() {
         return driver.getCurrentUrl();
     }
