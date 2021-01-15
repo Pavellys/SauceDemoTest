@@ -1,13 +1,20 @@
 package tests;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 public class LoginTests extends BaseTest{
+    @DataProvider(name = "login test")
+    public Object[][] inputForITechTask() {
+        return new Object[][]{
+                {"standard_user", "secret_sauce","good"}
+        };
+    }
 
-    @Test
-    public void loginTest(){
+    @Test(dataProvider = "login test", retryAnalyzer = Retry.class)
+    public void loginTest(String username, String password, String massage){
         loginPage.openPage()
-                .login(USERNAME, PASSWORD);
-        loginPage.isPageOpened();
-        Assert.assertEquals(loginPage.getURL(), PRODUCTS_URL, "error");
+                .login(username, password)
+                .waitForPageOpened();
+        Assert.assertEquals(loginPage.getURL(), PRODUCTS_URL, massage);
     }
 }

@@ -31,7 +31,7 @@ public class ProductsPage extends BasePage {
 
     @Override
     public void isPageOpened() {
-
+        //TODO: implement this method
     }
 
     public ProductsPage openPage(){

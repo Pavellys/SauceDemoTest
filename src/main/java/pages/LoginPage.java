@@ -15,20 +15,20 @@ public class LoginPage extends BasePage {
     @FindBy(className = "product_label")
     WebElement productLabel;
 
-    public LoginPage(WebDriver driver) {
+    public  LoginPage(WebDriver driver) {
         super(driver);
     }
 
     @Override
     public void isPageOpened() {
-        wait.until(ExpectedConditions.visibilityOf(productLabel));
+        //TODO: implement this method
     }
 
-    public ProductsPage login(String username, String password) {
+    public LoginPage login(String username, String password) {
         usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);
         loginButton.click();
-        return new ProductsPage(driver);
+        return this;
     }
 
     public LoginPage openPage() {
@@ -38,5 +38,10 @@ public class LoginPage extends BasePage {
 
     public String getURL() {
         return driver.getCurrentUrl();
+    }
+
+    public LoginPage waitForPageOpened(){
+        wait.until(ExpectedConditions.visibilityOf(productLabel));
+        return this;
     }
 }

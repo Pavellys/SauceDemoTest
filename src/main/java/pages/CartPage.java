@@ -19,6 +19,7 @@ public class CartPage extends BasePage {
 
     @Override
     public void isPageOpened() {
+        //TODO: Implement this method
     }
 
 
