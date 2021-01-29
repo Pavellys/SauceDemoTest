@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="2" name="Test suite" parallel="methods">
-    <test name="test 1">
+<suite thread-count="2" name="Test suite" parallel="classes">
+    <test name="SauceDemo">
         <classes>
             <class name="tests.CartTest"/>
             <class name="tests.ProductsTest"/>

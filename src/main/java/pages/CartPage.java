@@ -1,4 +1,5 @@
 package pages;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,30 +23,35 @@ public class CartPage extends BasePage {
         //TODO: Implement this method
     }
 
-
+    @Step("Opening Cart Page")
     public CartPage openPage() {
         driver.get(CART_URL);
         return this;
     }
 
+    @Step("Click to Checkout Button")
     public CartPage clickToCheckoutButton() {
         buttonCheckout.click();
         return this;
     }
 
+    @Step("Click to Continue Button")
     public CartPage clickToContinueButton(){
         buttonContinueShopping.click();
         return this;
     }
 
+    @Step("Getting current URL")
     public String getURL() {
         return driver.getCurrentUrl();
     }
 
+    @Step("Getting price in the cart page")
     public String getPrice(String product){
         return driver.findElement(By.xpath(String.format(CART_PRICE, product))).getText();
     }
 
+    @Step("Getting quantity in the cart page")
     public String getQuantity(String product){
         return driver.findElement(By.xpath(String.format(CART_QUANTITY, product))).getText();
     }

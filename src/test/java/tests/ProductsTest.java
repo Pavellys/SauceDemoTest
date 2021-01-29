@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ProductsTest extends BaseTest {
-    @Test
+    @Test(description = "Checking to adding product in the cart")
     public void addProductToCartTest() {
         productsPage.openPage()
                 .addProductToCart(TEST_PRODUCT);
@@ -14,7 +14,7 @@ public class ProductsTest extends BaseTest {
         Assert.assertEquals(cartPage.getPrice(TEST_PRODUCT), ExpResConst.PRICE_IN_CART, "Price not right");
     }
 
-    @Test
+    @Test(description = "Checking sort panel 'low-high'")
     public void checkingSortPanelLowHigh() {
         productsPage.openPage()
                 .changeSortLowHigh();
@@ -22,7 +22,7 @@ public class ProductsTest extends BaseTest {
         Assert.assertEquals(productsPage.checkingLastProduct(), ExpResConst.LAST_PRODUCT_HL, "error");
     }
 
-    @Test
+    @Test(description = "Checking sort panel 'high-low'")
     public void checkingSortPanelHighLow() {
         productsPage.openPage()
                 .changeSortHighLow();
@@ -30,7 +30,7 @@ public class ProductsTest extends BaseTest {
         Assert.assertEquals(productsPage.checkingFirstProduct(), ExpResConst.LAST_PRODUCT_HL, "error");
     }
 
-    @Test
+    @Test(description = "Checking sort panel 'Z-A'")
     public void checkingSortPanelZ_A() {
         productsPage.openPage()
                 .changeSortZ_A();
@@ -38,7 +38,7 @@ public class ProductsTest extends BaseTest {
         Assert.assertEquals(productsPage.checkingLastProduct(), ExpResConst.FIRST_PRODUCT_AZ, "error");
     }
 
-    @Test
+    @Test(description = "Checking sort panel 'A-Z'")
     public void checkingSortPanelA_Z() {
         productsPage.openPage()
                 .changeSortA_Z();
@@ -46,7 +46,7 @@ public class ProductsTest extends BaseTest {
         Assert.assertEquals(productsPage.checkingLastProduct(), ExpResConst.LAST_PRODUCT_AZ, "error");
     }
 
-    @Test
+    @Test(description = "Checking of button 'AllItems' in the sidebar")
     public void sideBarCheckingAllItems() {
         productsPage.openPage()
                 .clickSideBar()
@@ -54,7 +54,7 @@ public class ProductsTest extends BaseTest {
         Assert.assertEquals(productsPage.getActualURL(), PRODUCTS_URL);
     }
 
-    @Test
+    @Test(description = "Checking of button 'About' in the sidebar")
     public void sideBarCheckingAbout() {
         productsPage.openPage()
                 .clickSideBar()
@@ -62,7 +62,7 @@ public class ProductsTest extends BaseTest {
         Assert.assertEquals(productsPage.getActualURL(), ABOUT_LINK_URL);
     }
 
-    @Test
+    @Test(description = "Checking of button 'Logout' in the sidebar")
     public void sideBarCheckingLogout() {
         productsPage.openPage()
                 .clickSideBar()
